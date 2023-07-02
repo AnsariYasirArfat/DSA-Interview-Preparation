@@ -43,5 +43,60 @@
       <br />
       <input type="submit" value="Submit" />
     </form>
+
+    <script>
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var password = document.getElementById("password").value;
+        var age = document.getElementById("age").value;
+        var gender = document.getElementById("gender").value;
+        var date = document.getElementById("date").value;
+        var color = document.getElementById("color").value;
+
+        if (name === "") {
+          alert("Please enter your name");
+          return false;
+        }
+
+        if (email === "") {
+          alert("Please enter your email");
+          return false;
+        }
+
+        if (phone === "") {
+          alert("Please enter your phone number");
+          return false;
+        }
+
+        if (password === "") {
+          alert("Please enter your password");
+          return false;
+        }
+
+        if (age === "") {
+          alert("Please enter your age");
+          return false;
+        }
+
+        if (gender === "") {
+          alert("Please select your gender");
+          return false;
+        }
+
+        if (date === "") {
+          alert("Please select a date");
+          return false;
+        }
+
+        if (color === "") {
+          alert("Please select a color");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
   </body>
 </html>
