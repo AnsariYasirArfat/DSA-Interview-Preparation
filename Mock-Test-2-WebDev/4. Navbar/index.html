@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a class="navbar-logo" href="#">Logo</a>
+        <div class="navbar-menu1">
+          <a class="navbar-item" href="#">Home</a>
+          <a class="navbar-item" href="#">About</a>
+          <a class="navbar-item" href="#">Services</a>
+          <a class="navbar-item" href="#">Contact</a>
+        </div>
+        <div class="navbar-toggle">
+          <button class="navbar-toggle-icon" onclick="toggle()">
+            <img
+              width="20"
+              height="20"
+              src="https://img.icons8.com/fluency/48/menu--v2.png"
+              alt="menu--v1"
+            />
+          </button>
+        </div>
+      </div>
+      <div class="navbar-menu2" id="menu2">
+        <a class="navbar-item" href="#">Home</a>
+        <a class="navbar-item" href="#">About</a>
+        <a class="navbar-item" href="#">Services</a>
+        <a class="navbar-item" href="#">Contact</a>
+      </div>
+    </nav>
+    <script>
+      // Toggle the navbar menu on click
+      function toggle() {
+        var menu2 = document.getElementById("menu2");
+        menu2.classList.toggle("active");
+      }
+
+      // Close menu2 when screen becomes larger
+      window.addEventListener("resize", function () {
+        var menu2 = document.getElementById("menu2");
+        var screenWidth = window.innerWidth;
+        if (screenWidth >= 769 && menu2.classList.contains("active")) {
+          menu2.classList.remove("active");
+        }
+      });
+    </script>
+  </body>
+</html>
