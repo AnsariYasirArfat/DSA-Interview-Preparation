@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Input Box</title>
+  </head>
+  <body>
+    <h1>Input Box</h1>
+    <form onsubmit="submitform(event)">
+      <input type="text" id="inputValue" />
+      <button type="submit">Submit</button>
+    </form>
+    <div id="displayBox"></div>
+    <script>
+      const userInputList = [];
+      const inputValue = document.getElementById("inputValue"),
+        submitButton = document.querySelector("button");
+      const displayBox = document.querySelector("#displayBox");
+
+      const submitform = (event) => {
+        event.preventDefault();
+
+        const userInput = inputValue.value;
+        if (userInput) {
+          userInputList.push(userInput);
+        }
+        inputValue.value = "";
+
+        showInput();
+      };
+
+      function showInput() {
+        displayBox.innerHTML = "";
+        userInputList.forEach((userInput, index) => {
+          let newInput = document.createElement("p");
+          newInput.textContent = `${userInput}`;
+          displayBox.appendChild(newInput);
+        });
+      }
+    </script>
+  </body>
+</html>
