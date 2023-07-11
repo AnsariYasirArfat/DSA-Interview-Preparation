@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <form id="myForm" onsubmit="validateForm(event)">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="text" id="email" />
+      </div>
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input id="phone" />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" />
+      </div>
+      <div>
+        <label for="age">Age:</label>
+        <input id="age" />
+      </div>
+      <div>
+        <label for="gender">Gender:</label>
+        <select id="gender">
+          <option value=""></option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" />
+      </div>
+      <div>
+        <label for="color">Favorite Color:</label>
+        <input type="color" id="color" />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      function validateForm(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Retrieve form inputs
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const password = document.getElementById("password").value;
+        const age = document.getElementById("age").value;
+        const gender = document.getElementById("gender").value;
+        const date = document.getElementById("date").value;
+        const color = document.getElementById("color").value;
+
+        // Perform form validation
+        if (name == null || name === "") {
+          alert("Name is required");
+          return;
+        }
+
+        if (email === "") {
+          alert("Email is required");
+          return;
+        }
+
+        if (!validateEmail(email)) {
+          alert("Invalid email format");
+          return;
+        }
+
+        if (phone === "") {
+          alert("Phone number is required");
+          return;
+        }
+        if (password === "") {
+          alert("Password is required");
+        } else if (password.length < 6) {
+          alert("Password must be at least 6 characters long.");
+          return;
+        }
+
+        if (age === "") {
+          alert("Age is required");
+          return;
+        }
+
+        if (isNaN(age)) {
+          alert("Age must be a number");
+          return;
+        } else if (age < 1 || age > 100) {
+          alert("Age cannot be 0 and greater than 100");
+        }
+
+        if (gender === "") {
+          alert("Gender is required");
+          return;
+        }
+
+        if (date === "") {
+          alert("Date is required");
+          return;
+        }
+
+        if (color === "") {
+          alert("Favorite color is required");
+          return;
+        }
+
+        // If form passes validation, you can proceed with form submission or other actions
+        alert("Form submitted successfully!");
+      }
+
+      function validateEmail(email) {
+        // Email validation regex pattern
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailPattern.test(email);
+      }
+    </script>
+  </body>
+</html>
